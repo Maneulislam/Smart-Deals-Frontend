@@ -1,20 +1,45 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Link, NavLink } from 'react-router';
+import { AuthContext } from '../../context/AuthContext';
 
 const Navbar = () => {
+
+    const { user, logOut } = use(AuthContext);
+
+
+
+    const handleSignOut = () => {
+        logOut()
+            .then(() => {
+                console.log("Signed out successfully");
+            })
+            .catch((error) => {
+                console.error(error.message);
+            });
+    };
+
+
     const navLinks = (
+
         <>
             <li><NavLink to="/" className={({ isActive }) => isActive ? "text-[#8B5CF6] font-semibold" : "text-gray-600 hover:text-[#8B5CF6]"}>Home</NavLink></li>
             <li><NavLink to="/all-products" className="text-gray-600 hover:text-[#8B5CF6]">All Products</NavLink></li>
-            <li><NavLink to="/my-products" className="text-gray-600 hover:text-[#8B5CF6]">My Products</NavLink></li>
-            <li><NavLink to="/my-bids" className="text-gray-600 hover:text-[#8B5CF6]">My Bids</NavLink></li>
-            <li><NavLink to="/create-product" className="text-gray-600 hover:text-[#8B5CF6]">Create Product</NavLink></li>
+
+            {
+                user && <>
+                    <li><NavLink to="/my-products" className="text-gray-600 hover:text-[#8B5CF6]">My Products</NavLink></li>
+                    <li><NavLink to="/my-bids" className="text-gray-600 hover:text-[#8B5CF6]">My Bids</NavLink></li>
+                    <li><NavLink to="/create-product" className="text-gray-600 hover:text-[#8B5CF6]">Create Product</NavLink></li>
+
+                </>
+            }
+
         </>
     );
 
     return (
         <div className="bg-white sticky top-0 z-50 border-b border-gray-100">
-            <div className="navbar max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="navbar max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8">
 
                 {/* Mobile Menu Toggle */}
                 <div className="navbar-start">
@@ -50,18 +75,30 @@ const Navbar = () => {
 
                 {/* Buttons - Hidden on small mobile, visible on tablet/desktop */}
                 <div className="navbar-end flex gap-2 md:gap-4">
-                    <Link
-                        to="/login"
-                        className="hidden sm:flex btn btn-outline border-[#8B5CF6] text-[#8B5CF6] hover:bg-[#8B5CF6] hover:text-white hover:border-[#8B5CF6] px-6 min-h-0 h-10 normal-case font-semibold rounded-md"
-                    >
-                        Login
-                    </Link>
-                    <Link
-                        to="/register"
-                        className="btn bg-[#8B5CF6] border-none text-white hover:bg-[#7C3AED] px-4 md:px-8 min-h-0 h-10 normal-case font-semibold rounded-md"
-                    >
-                        Register
-                    </Link>
+                    {
+                        user ? <Link
+                            onClick={handleSignOut}
+                            className="hidden sm:flex btn btn-outline border-[#8B5CF6] text-[#8B5CF6] hover:bg-[#8B5CF6] hover:text-white hover:border-[#8B5CF6] px-6 min-h-0 h-10 normal-case font-semibold rounded-md"
+                        >
+                            Logout
+                        </Link> :
+                            <Link
+                                to="/login"
+                                className="hidden sm:flex btn btn-outline border-[#8B5CF6] text-[#8B5CF6] hover:bg-[#8B5CF6] hover:text-white hover:border-[#8B5CF6] px-6 min-h-0 h-10 normal-case font-semibold rounded-md"
+                            >
+                                Login
+                            </Link>
+                    }
+
+                    {
+                        user ? " " : <Link
+                            to="/register"
+                            className="btn bg-[#8B5CF6] border-none text-white hover:bg-[#7C3AED] px-4 md:px-8 min-h-0 h-10 normal-case font-semibold rounded-md"
+                        >
+                            Register
+                        </Link>
+                    }
+
                 </div>
             </div>
         </div>
