@@ -78,13 +78,13 @@ const Navbar = () => {
                     {
                         user ? <Link
                             onClick={handleSignOut}
-                            className="hidden sm:flex btn btn-outline border-[#8B5CF6] text-[#8B5CF6] hover:bg-[#8B5CF6] hover:text-white hover:border-[#8B5CF6] px-6 min-h-0 h-10 normal-case font-semibold rounded-md"
+                            className="hidden sm:flex btn btn-outline border-[#8B5CF6] text-[#8B5CF6] hover:bg-gradient-to-r hover:from-[#632EE3] hover:to-[#9F62F2] hover:text-white hover:border-[#8B5CF6] px-6 min-h-0 h-10 normal-case font-semibold rounded-md"
                         >
                             Logout
                         </Link> :
                             <Link
                                 to="/login"
-                                className="hidden sm:flex btn btn-outline border-[#8B5CF6] text-[#8B5CF6] hover:bg-[#8B5CF6] hover:text-white hover:border-[#8B5CF6] px-6 min-h-0 h-10 normal-case font-semibold rounded-md"
+                                className="hidden sm:flex btn btn-outline border-[#8B5CF6] text-[#8B5CF6] hover:bg-gradient-to-r hover:from-[#632EE3] hover:to-[#9F62F2]  hover:text-white hover:border-[#8B5CF6] px-6 min-h-0 h-10 normal-case font-semibold rounded-md"
                             >
                                 Login
                             </Link>
@@ -93,7 +93,7 @@ const Navbar = () => {
                     {
                         user ? " " : <Link
                             to="/register"
-                            className="btn bg-[#8B5CF6] border-none text-white hover:bg-[#7C3AED] px-4 md:px-8 min-h-0 h-10 normal-case font-semibold rounded-md"
+                            className="btn bg-gradient-to-r from-[#632EE3] to-[#9F62F2] border-none text-white hover:bg-[#7C3AED] px-4 md:px-8 min-h-0 h-10 normal-case font-semibold rounded-md"
                         >
                             Register
                         </Link>
