@@ -15,6 +15,7 @@ const HeroSection = () => {
                 }}
             >
 
+
             </div>
 
             <div className="pointer-events-none bg-cover bg-center bg-no-repeat absolute right-0 top-0 hidden h-full w-72 opacity-80 md:block"
