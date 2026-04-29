@@ -4,7 +4,7 @@ import RecentProducts from '../RecentProducts/RecentProducts';
 
 
 const recentProductsPromise = fetch("http://localhost:3000/recent-products").then(res => res.json());
-console.log(recentProductsPromise);
+// console.log(recentProductsPromise);
 
 const Home = () => {
     return (

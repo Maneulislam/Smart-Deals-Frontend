@@ -5,6 +5,7 @@ import { AuthContext } from '../../context/AuthContext';
 const Navbar = () => {
 
     const { user, logOut } = use(AuthContext);
+    console.log(user);
 
 
 
@@ -73,8 +74,32 @@ const Navbar = () => {
                     </ul>
                 </div>
 
+
+
+
+
                 {/* Buttons - Hidden on small mobile, visible on tablet/desktop */}
                 <div className="navbar-end flex gap-2 md:gap-4">
+
+
+                    {
+                        user && <>
+
+                            <div className="avatar">
+                                <div className="w-12 h-12 rounded-full">
+                                    <img
+                                        src={user?.photoURL}
+                                        alt={user?.displayName}
+                                        className="object-cover"
+                                    />
+                                </div>
+                            </div>
+                        </>
+                    }
+
+
+
+
                     {
                         user ? <Link
                             onClick={handleSignOut}
