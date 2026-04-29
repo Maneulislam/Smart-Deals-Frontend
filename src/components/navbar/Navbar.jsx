@@ -29,7 +29,7 @@ const Navbar = () => {
             {
                 user && <>
                     <li><NavLink to="/my-products" className="text-gray-600 hover:text-[#8B5CF6]">My Products</NavLink></li>
-                    <li><NavLink to="/my-bids" className="text-gray-600 hover:text-[#8B5CF6]">My Bids</NavLink></li>
+                    <li><NavLink to="/myBids" className="text-gray-600 hover:text-[#8B5CF6]">My Bids</NavLink></li>
                     <li><NavLink to="/create-product" className="text-gray-600 hover:text-[#8B5CF6]">Create Product</NavLink></li>
 
                 </>
