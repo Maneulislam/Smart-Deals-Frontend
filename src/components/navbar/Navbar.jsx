@@ -5,7 +5,6 @@ import { AuthContext } from '../../context/AuthContext';
 const Navbar = () => {
 
     const { user, logOut } = use(AuthContext);
-    console.log(user);
 
 
 
@@ -24,13 +23,13 @@ const Navbar = () => {
 
         <>
             <li><NavLink to="/" className={({ isActive }) => isActive ? "text-[#8B5CF6] font-semibold" : "text-gray-600 hover:text-[#8B5CF6]"}>Home</NavLink></li>
-            <li><NavLink to="/all-products" className="text-gray-600 hover:text-[#8B5CF6]">All Products</NavLink></li>
+            <li><NavLink to="/all-products" className={({ isActive }) => isActive ? "text-[#8B5CF6] font-semibold" : "text-gray-600 hover:text-[#8B5CF6]"}>All Products</NavLink></li>
 
             {
                 user && <>
-                    <li><NavLink to="/my-products" className="text-gray-600 hover:text-[#8B5CF6]">My Products</NavLink></li>
-                    <li><NavLink to="/myBids" className="text-gray-600 hover:text-[#8B5CF6]">My Bids</NavLink></li>
-                    <li><NavLink to="/create-product" className="text-gray-600 hover:text-[#8B5CF6]">Create Product</NavLink></li>
+                    <li><NavLink to="/my-products" className={({ isActive }) => isActive ? "text-[#8B5CF6] font-semibold" : "text-gray-600 hover:text-[#8B5CF6]"}>My Products</NavLink></li>
+                    <li><NavLink to="/myBids" className={({ isActive }) => isActive ? "text-[#8B5CF6] font-semibold" : "text-gray-600 hover:text-[#8B5CF6]"}>My Bids</NavLink></li>
+                    <li><NavLink to="/create-product" className={({ isActive }) => isActive ? "text-[#8B5CF6] font-semibold" : "text-gray-600 hover:text-[#8B5CF6]"}>Create Product</NavLink></li>
 
                 </>
             }
@@ -86,7 +85,7 @@ const Navbar = () => {
                         user && <>
 
                             <div className="avatar">
-                                <div className="w-12 h-12 rounded-full">
+                                <div className="w-12 h-12 rounded-full ring ring-[#632EE3]">
                                     <img
                                         src={user?.photoURL}
                                         alt={user?.displayName}

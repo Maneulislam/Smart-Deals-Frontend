@@ -1,13 +1,16 @@
 import React, { use } from 'react';
-
 import Photo from "../../assets/404.gif";
 import { Link } from 'react-router';
 
 
-const RecentProducts = ({ recentProductsPromise }) => {
-    // Unwrapping the array of 6 products
-    const products = use(recentProductsPromise);
 
+const productsPromise = fetch("http://localhost:3000/products").then(res => res.json());
+
+
+const AllProducts = () => {
+
+    const products = use(productsPromise);
+    console.log(products);
 
     return (
         <section className="max-w-7xl  mx-auto px-4 py-20 ">
@@ -34,6 +37,13 @@ const RecentProducts = ({ recentProductsPromise }) => {
                         </div>
 
 
+                        <div className="badge badge-soft my-2 badge-primary border-none text-[10px] font-bold px-3 py-3 uppercase">
+                            {product.condition}
+                        </div>
+
+
+
+
                         {/* 2. Title with usage/condition in brackets */}
                         <div className="flex-grow">
                             <h3 className="text-5 font-extrabold text-[#374151] leading-snug mb-2">
@@ -41,7 +51,7 @@ const RecentProducts = ({ recentProductsPromise }) => {
                             </h3>
 
                             {/* 3. Dynamic Price Range */}
-                            <p className="text-[#8B5CF6] text-2 font-extrabold mb-4">
+                            <p className="text-[#8B5CF6] text-2 font-bold mb-4">
                                 $ {product.price_min?.toLocaleString()} - {product.price_max?.toLocaleString()}
                             </p>
                         </div>
@@ -59,4 +69,4 @@ const RecentProducts = ({ recentProductsPromise }) => {
     );
 };
 
-export default RecentProducts;
+export default AllProducts;

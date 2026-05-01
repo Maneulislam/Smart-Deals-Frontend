@@ -6,12 +6,12 @@ import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
 import RootLayout from './layout/RootLayout.jsx';
 import Home from './components/home/Home.jsx';
-import AllProducts from './components/allProducts/AllProducts.jsx';
 import AuthProvider from './context/AuthProvider.jsx';
 import Login from './components/login/Login.jsx';
 import Register from './components/register/Register.jsx';
 import ProductDetails from './components/ProductDetails/ProductDetails.jsx';
 import MyBids from './components/MyBids/MyBids.jsx';
+import AllProducts from './components/AllProducts/AllProducts.jsx';
 
 const router = createBrowserRouter([
   {
@@ -24,7 +24,7 @@ const router = createBrowserRouter([
 
       },
       {
-        path: "allProducts",
+        path: "all-products",
         Component: AllProducts,
       },
       {

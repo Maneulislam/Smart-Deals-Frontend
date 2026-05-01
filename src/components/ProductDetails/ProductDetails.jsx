@@ -165,7 +165,7 @@ const ProductDetails = () => {
                         <div className="lg:col-span-7 flex flex-col gap-4">
                             <div>
                                 <h1 className="text-4xl font-extrabold text-slate-900 mb-3">{title}</h1>
-                                <div className="badge badge-primary badge-outline bg-indigo-50 border-none text-[10px] font-bold px-3 py-3 uppercase">
+                                <div className="badge badge-soft badge-primary border-none text-[10px] font-bold px-3 py-3 uppercase">
                                     {category}
                                 </div>
                             </div>

@@ -1,5 +1,6 @@
 import React, { use, useEffect, useState } from 'react';
 import { AuthContext } from '../../context/AuthContext';
+import Swal from 'sweetalert2';
 
 const MyBids = () => {
 
@@ -18,33 +19,75 @@ const MyBids = () => {
         }
     }, [user?.email])
 
+
+
+    const handleBidDelete = (_id) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed)
+
+                fetch(`http://localhost:3000/bids/${_id}`, {
+                    method: 'DELETE'
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.deletedCount) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your bid has been deleted.",
+                                icon: "success"
+                            });
+
+                            const remainingBids = bids.filter(bid => bid._id !== _id);
+                            setBids(remainingBids);
+                        }
+
+                    });
+
+
+
+        });
+    }
+
+
+
+
+
     return (
         <div>
 
             {/* Bids show */}
 
 
-            <div class="p-4 md:p-8 w-7xl mx-auto mt-14 ">
+            <div className="p-4 md:p-8 w-7xl mx-auto mt-14 ">
                 {/* Header Section */}
-                <div class="mb-8">
-                    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-800">
-                        Bids For This Product: <span class="text-[#9365E6]">0{bids.length}</span>
+                <div className="flex justify-center  mb-16">
+                    <h2 className="text-3xl md:text-4xl font-extrabold text-slate-800">
+                        My Bids: <span className="text-[#9365E6]">0{bids.length}</span>
                     </h2>
                 </div>
 
                 {/* Responsive Table Wrapper */}
-                <div class="overflow-x-auto bg-base-100 rounded-xl mt-12 border border-base-200 shadow-sm">
-                    <table class="table w-full">
+                <div className="overflow-x-auto bg-base-100 rounded-xl mt-12 border border-base-200 shadow-sm">
+                    <table className="table w-full">
                         {/* Table Head */}
-                        <thead class="bg-base-200/50">
-                            <tr class="text-slate-600 uppercase text-xs">
-                                <th class="py-4">SL No</th>
+                        <thead className="bg-base-200/50">
+                            <tr className="text-slate-600 uppercase text-xs">
+                                <th className="py-4">SL No</th>
 
                                 {/* <th>Product</th> */}
 
                                 <th>Buyer Info</th>
-                                <th class="text-center">Bid Price</th>
-                                <th class="text-center">Actions</th>
+                                <th className="text-center">Bid Price</th>
+                                <th className="text-center">Status</th>
+                                <th className="text-center">Actions</th>
                             </tr>
                         </thead>
 
@@ -94,16 +137,25 @@ const MyBids = () => {
 
                                     {/* Bid Price */}
                                     <td className="text-center">
-                                        <span className="text-lg font-black text-slate-900">
+                                        <span className="text-lg font-semibold text-slate-900">
                                             ${bid.bidPrice}
                                         </span>
                                     </td>
+
+
+                                    <td className="text-center">
+                                        <span className="text-4  text-slate-900 badge badge-warning">
+                                            {bid.status}
+                                        </span>
+                                    </td>
+
 
                                     {/* Actions */}
                                     <td className="text-center">
                                         <div className="flex flex-wrap gap-2 justify-center">
 
                                             <button
+                                                onClick={() => handleBidDelete(bid._id)}
                                                 className="btn btn-outline btn-error btn-sm normal-case border-2 hover:text-white"
                                                 disabled={bid.status !== 'pending'}
                                             >
