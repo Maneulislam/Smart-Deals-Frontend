@@ -5,19 +5,24 @@ import Swal from 'sweetalert2';
 const MyBids = () => {
 
     const { user } = use(AuthContext);
+    console.log("token", user.accessToken);
 
     const [bids, setBids] = useState([]);
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:3000/bids?email=${user.email}`)
+            fetch(`http://localhost:3000/bids?email=${user.email}`), {
+                headers: {
+                    authorization: `Bearer ${user.accessToken}`
+                }
+            }
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);
                     setBids(data);
                 })
         }
-    }, [user?.email])
+    }, [user?.email, user.accessToken])
 
 
 
