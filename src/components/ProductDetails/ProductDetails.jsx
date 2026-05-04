@@ -39,11 +39,15 @@ const ProductDetails = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:3000/products/bids/${_id}`)
+        fetch(`http://localhost:3000/products/bids/${_id}`, {
+            headers: {
+                authorization: `Bearer ${user.accessToken}`
+            }
+        })
             .then(res => res.json())
             .then(data => setBids(data))
             .catch(err => console.error(err));
-    }, [_id]);
+    }, [_id, user]);
 
 
 
@@ -360,9 +364,6 @@ const ProductDetails = () => {
 
 
 
-
-
-
             <dialog ref={modalRef} className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box max-w-2xl bg-white rounded-xl p-8">
                     {/* Header */}
@@ -401,7 +402,7 @@ const ProductDetails = () => {
                         {/* Action Buttons */}
                         <div className="modal-action flex justify-end gap-3 mt-6">
                             {/* method="dialog" on the form or button automatically closes the modal */}
-                            <button className="btn btn-outline border-[#9365E6] text-[#9365E6] hover:bg-purple-50 min-w-[100px]">
+                            <button type="button" onClick={() => modalRef.current?.close()} className="btn btn-outline border-[#9365E6] text-[#9365E6] hover:bg-purple-50 min-w-[100px]">
                                 Cancel
                             </button>
                             <button className="btn bg-gradient-to-r from-[#632EE3] to-[#9F62F2]  hover:bg-[#7e52cc] text-white border-none min-w-[120px]">
