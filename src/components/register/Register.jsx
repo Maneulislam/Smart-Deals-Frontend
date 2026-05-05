@@ -197,7 +197,7 @@ const Register = () => {
                     className="btn btn-outline w-full bg-white border-gray-300 hover:bg-gray-50 hover:border-gray-400 normal-case gap-3 text-[#0f172a] font-bold h-11 min-h-0"
                 >
                     <FcGoogle size={20} />
-                    Sign Up With Google
+                    Signin With Google
                 </Link>
             </div>
         </div>

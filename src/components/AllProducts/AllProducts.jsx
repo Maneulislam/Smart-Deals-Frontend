@@ -16,7 +16,7 @@ const AllProducts = () => {
         <section className="max-w-7xl  mx-auto px-4 py-20 ">
             {/* Main Heading */}
             <h2 className="text-4xl font-extrabold text-center mb-14 text-[#111827]">
-                Recent <span className="text-[#8B5CF6]">Products</span>
+                All <span className="text-[#8B5CF6]">Products</span>
             </h2>
 
             {/* Responsive Grid Layout */}

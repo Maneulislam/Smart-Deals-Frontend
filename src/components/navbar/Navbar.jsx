@@ -43,7 +43,7 @@ const Navbar = () => {
 
                 {/* Mobile Menu Toggle */}
                 <div className="navbar-start">
-                    <div className="dropdown">
+                    <div className="dropdown ">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden p-0 mr-2">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
@@ -53,8 +53,11 @@ const Navbar = () => {
                             {navLinks}
                             <hr className="my-2 border-gray-100" />
                             <div className="flex flex-col gap-2">
-                                <Link to="/login" className="btn btn-sm btn-outline border-[#8B5CF6] text-[#8B5CF6]">Login</Link>
-                                <Link to="/register" className="btn btn-sm bg-[#8B5CF6] text-white border-none">Register</Link>
+                                <Link to={"/login"}
+                                    onClick={handleSignOut} to="/login" className="btn btn-sm btn-outline border-[#8B5CF6] text-[#8B5CF6]">{user ? "Logout" : "Login"}</Link>
+                                {
+                                    !user && <Link to="/register" className="btn btn-sm bg-[#8B5CF6] text-white border-none">Register</Link>
+                                }
                             </div>
                         </ul>
                     </div>
@@ -109,21 +112,22 @@ const Navbar = () => {
                         </Link> :
                             <Link
                                 to="/login"
-                                className="hidden sm:flex btn btn-outline border-[#8B5CF6] text-[#8B5CF6] hover:bg-gradient-to-r hover:from-[#632EE3] hover:to-[#9F62F2]  hover:text-white hover:border-[#8B5CF6] px-6 min-h-0 h-10 normal-case font-semibold rounded-md"
+                                className=" btn btn-outline border-[#8B5CF6] text-[#8B5CF6] hover:bg-gradient-to-r hover:from-[#632EE3] hover:to-[#9F62F2]  hover:text-white hover:border-[#8B5CF6] px-6 min-h-0 h-10 normal-case font-semibold rounded-md"
                             >
                                 Login
                             </Link>
                     }
 
                     {
-                        user ? " " : <Link
-                            to="/register"
-                            className="btn bg-gradient-to-r from-[#632EE3] to-[#9F62F2] border-none text-white hover:bg-[#7C3AED] px-4 md:px-8 min-h-0 h-10 normal-case font-semibold rounded-md"
-                        >
-                            Register
-                        </Link>
+                        !user && (
+                            <Link
+                                to="/register"
+                                className="hidden md:flex btn bg-gradient-to-r from-[#632EE3] to-[#9F62F2] border-none text-white hover:opacity-90 px-4 md:px-8 min-h-0 h-10 normal-case font-semibold rounded-md items-center justify-center"
+                            >
+                                Register
+                            </Link>
+                        )
                     }
-
                 </div>
             </div>
         </div>
