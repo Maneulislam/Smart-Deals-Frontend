@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaArrowLeft } from 'react-icons/fa';
 import { Link } from 'react-router';
 import useAxios from '../../useAxios/useAxios';
@@ -8,7 +8,7 @@ const CreateProduct = () => {
 
     const axiosInstance = useAxios();
 
-    const [condition, setCondition] = React.useState('Brand New');
+    const [condition, setCondition] = useState('Brand New');
 
     const handleCreateProduct = (e) => {
         e.preventDefault();
@@ -17,15 +17,15 @@ const CreateProduct = () => {
         // Data extraction using the 'name' attributes defined in the JSX below
         const title = form.title.value;
         const category = form.category.value;
-        const minPrice = form.minPrice.value;
-        const maxPrice = form.maxPrice.value || minPrice;
+        const price_min = form.price_min.value;
+        const price_max = form.price_max.value || price_min;
         const condition = form.condition.value;
         const usageTime = form.usageTime.value;
-        const productImage = form.productImage.value;
-        const sellerName = form.sellerName.value;
-        const sellerEmail = form.sellerEmail.value;
-        const sellerContact = form.sellerContact.value;
-        const sellerImage = form.sellerImage.value;
+        const image = form.image.value;
+        const seller_name = form.seller_name.value;
+        const email = form.email.value;
+        const seller_contact = form.seller_contact.value;
+        const seller_image = form.seller_image.value;
         const location = form.location.value;
         const description = form.description.value;
 
@@ -33,22 +33,18 @@ const CreateProduct = () => {
         const newProduct = {
             title,
             category,
-            price: {
-                min: parseFloat(minPrice),
-                max: parseFloat(maxPrice)
-            },
+            price_min,
+            price_max,
             condition,
             usageTime,
-            productImage,
-            seller: {
-                name: sellerName,
-                email: sellerEmail,
-                contact: sellerContact,
-                image: sellerImage
-            },
+            image,
+            seller_name,
+            email,
+            seller_contact,
+            seller_image,
             location,
             description,
-            createdAt: new Date().toISOString()
+            created_at: new Date().toISOString()
         };
 
         console.log("Form Data Collected:", newProduct);
@@ -65,9 +61,11 @@ const CreateProduct = () => {
                         showConfirmButton: false,
                         timer: 1500
                     });
-                    // form.reset();
+                    form.reset();
+                    setCondition('Brand New'); // Reset condition state
                 }
             })
+
     };
 
     return (
@@ -130,7 +128,7 @@ const CreateProduct = () => {
                             <span className="label-text text-xs font-semibold text-gray-600">Min Price You want to Sale ($)</span>
                         </label>
                         <input
-                            name="minPrice"
+                            name="price_min"
                             type="number"
                             step="0.01"
                             placeholder="e.g. 18.5"
@@ -145,7 +143,7 @@ const CreateProduct = () => {
                             <span className="label-text text-xs font-semibold text-gray-600">Max Price You want to Sale ($)</span>
                         </label>
                         <input
-                            name="maxPrice"
+                            name="price_max"
                             type="number"
                             step="0.01"
                             placeholder="Optional (default = Min Price)"
@@ -209,7 +207,7 @@ const CreateProduct = () => {
                             <span className="label-text text-xs font-semibold text-gray-600">Your Product Image URL</span>
                         </label>
                         <input
-                            name="productImage"
+                            name="image"
                             type="url"
                             placeholder="https://..."
                             className="input input-bordered w-full bg-white focus:outline-none focus:border-[#8b5cf6] focus:ring-1 focus:ring-[#8b5cf6]"
@@ -223,7 +221,7 @@ const CreateProduct = () => {
                             <span className="label-text text-xs font-semibold text-gray-600">Seller Name</span>
                         </label>
                         <input
-                            name="sellerName"
+                            name="seller_name"
                             type="text"
                             placeholder="e.g. Artisan Roasters"
                             className="input input-bordered w-full bg-white focus:outline-none focus:border-[#8b5cf6] focus:ring-1 focus:ring-[#8b5cf6]"
@@ -235,7 +233,7 @@ const CreateProduct = () => {
                             <span className="label-text text-xs font-semibold text-gray-600">Seller Email</span>
                         </label>
                         <input
-                            name="sellerEmail"
+                            name="email"
                             type="email"
                             placeholder="leli31955@nrlord.com"
                             className="input input-bordered w-full bg-white focus:outline-none focus:border-[#8b5cf6] focus:ring-1 focus:ring-[#8b5cf6]"
@@ -247,7 +245,7 @@ const CreateProduct = () => {
                             <span className="label-text text-xs font-semibold text-gray-600">Seller Contact</span>
                         </label>
                         <input
-                            name="sellerContact"
+                            name="seller_contact"
                             type="text"
                             placeholder="e.g. +1-555-1234"
                             className="input input-bordered w-full bg-white focus:outline-none focus:border-[#8b5cf6] focus:ring-1 focus:ring-[#8b5cf6]"
@@ -259,7 +257,7 @@ const CreateProduct = () => {
                             <span className="label-text text-xs font-semibold text-gray-600">Seller Image URL</span>
                         </label>
                         <input
-                            name="sellerImage"
+                            name="seller_image"
                             type="url"
                             placeholder="https://..."
                             className="input input-bordered w-full bg-white focus:outline-none focus:border-[#8b5cf6] focus:ring-1 focus:ring-[#8b5cf6]"
