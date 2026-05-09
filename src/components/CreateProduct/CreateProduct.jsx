@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaArrowLeft } from 'react-icons/fa';
 import { Link } from 'react-router';
-import useAxios from '../../useAxios/useAxios';
+import useAxios from '../useAxios/useAxios';
 import Swal from 'sweetalert2';
 
 const CreateProduct = () => {
@@ -69,7 +69,7 @@ const CreateProduct = () => {
     };
 
     return (
-        <div className="min-h-screen bg-[#f8f9fa] py-10 px-4 flex flex-col items-center font-sans">
+        <div className="min-h-screen bg-[#f8f9fa] pb-24 py-10 px-4 flex flex-col items-center font-sans">
 
 
             {/* Header */}

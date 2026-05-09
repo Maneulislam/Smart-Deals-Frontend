@@ -99,7 +99,7 @@ const MyBids = () => {
             {/* Bids show */}
 
 
-            <div className="p-4 md:p-8 w-7xl mx-auto mt-14 ">
+            <div className="p-4 md:p-8 w-7xl mx-auto my-16  ">
                 {/* Header Section */}
                 <div className="flex justify-center  mb-16">
                     <h2 className="text-3xl md:text-4xl font-extrabold text-slate-800">
