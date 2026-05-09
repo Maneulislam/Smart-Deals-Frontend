@@ -58,11 +58,11 @@ const HeroSection = () => {
 
                     {/* Buttons */}
                     <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-                        <Link className="btn bg-gradient-to-r from-[#632EE3] to-[#9F62F2] text-white rounded-lg px-6">
+                        <Link to={"/all-products"} className="btn bg-gradient-to-r from-[#632EE3] to-[#9F62F2] text-white rounded-lg px-6">
                             Watch All Products
                         </Link>
                         <Link
-
+                            to={"/create-product"}
                             className="btn btn-outline border-[#8B5CF6] text-[#8B5CF6] hover:bg-gradient-to-r from-[#632EE3] to-[#9F62F2] hover:text-white rounded-lg px-6"
                         >
                             Post an Product

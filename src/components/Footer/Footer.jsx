@@ -5,7 +5,7 @@ import { AuthContext } from "../../context/AuthContext";
 
 const Footer = () => {
 
-    const { user, logOut } = use(AuthContext);
+    const { user } = use(AuthContext);
 
     const navLinks = (
 

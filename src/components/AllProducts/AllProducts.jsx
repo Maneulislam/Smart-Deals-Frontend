@@ -10,7 +10,6 @@ const productsPromise = fetch("http://localhost:3000/products").then(res => res.
 const AllProducts = () => {
 
     const products = use(productsPromise);
-    console.log(products);
 
     return (
         <section className="max-w-7xl  mx-auto px-4 py-20 ">
