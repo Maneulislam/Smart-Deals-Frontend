@@ -47,11 +47,11 @@ const CreateProduct = () => {
             created_at: new Date().toISOString()
         };
 
-        console.log("Form Data Collected:", newProduct);
+        // console.log("Form Data Collected:", newProduct);
 
         axiosInstance.post("/products", newProduct)
             .then(data => {
-                console.log("after", data.data);
+                // console.log("after", data.data);
 
                 if (data.data.insertedId) {
                     Swal.fire({

@@ -60,7 +60,7 @@ const AuthProvider = ({ children }) => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log("After verify", data);
+                        // console.log("After verify", data);
                         localStorage.setItem("token", data.token)
                     })
                     .catch(error => {

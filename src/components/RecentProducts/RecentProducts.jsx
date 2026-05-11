@@ -19,7 +19,7 @@ const RecentProducts = ({ recentProductsPromise }) => {
             {/* Responsive Grid Layout */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 ">
                 {products?.map((product) => (
-                    console.log(product),
+                    // console.log(product),
                     <div
                         key={product._id}
                         className="bg-white border border-gray-100 rounded-[10px] p-4 shadow-sm flex flex-col transition-all duration-300 hover:shadow-md"

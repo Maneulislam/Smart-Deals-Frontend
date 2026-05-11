@@ -35,7 +35,7 @@ const ProductDetails = () => {
     } = product;
 
     const [bids, setBids] = useState([]);
-    console.log(bids);
+    // console.log(bids);
 
 
     useEffect(() => {

@@ -10,19 +10,19 @@ const productsPromise = fetch("http://localhost:3000/products").then(res => res.
 const MyProducts = () => {
 
     const products = use(productsPromise);
-    console.log(products);
+    // console.log(products);
 
     return (
         <section className="max-w-7xl  mx-auto px-4 py-20 ">
             {/* Main Heading */}
             <h2 className="text-4xl font-extrabold text-center mb-14 text-[#111827]">
-                All <span className="text-[#8B5CF6]">Products</span>
+                My <span className="text-[#8B5CF6]">Products</span>
             </h2>
 
             {/* Responsive Grid Layout */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 ">
                 {products?.map((product) => (
-                    console.log(product),
+                    // console.log(product),
                     <div
                         key={product._id}
                         className="bg-white border border-gray-100 rounded-[10px] p-4 shadow-sm flex flex-col transition-all duration-300 hover:shadow-md"

@@ -29,7 +29,7 @@ const Register = () => {
 
         createUser(email, password)
             .then((result) => {
-                console.log(result);
+                // console.log(result);
 
                 const newUser = {
                     name: name,
@@ -46,7 +46,7 @@ const Register = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log("After", data);
+                        // console.log("After", data);
                     })
 
 
@@ -68,7 +68,7 @@ const Register = () => {
     const handleGoogleSignIn = () => {
         signInWithGoogle()
             .then(result => {
-                console.log(result);
+                // console.log(result);
                 const user = result.user;
 
                 const newUser = {
@@ -86,12 +86,12 @@ const Register = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log("After", data);
+                        // console.log("After", data);
                     })
 
             })
             .catch(error => {
-                console.log(error);
+                // console.log(error);
             })
     }
 
