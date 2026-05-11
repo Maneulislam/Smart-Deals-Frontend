@@ -3,7 +3,7 @@ import HeroSection from '../HeroSection/HeroSection';
 import RecentProducts from '../RecentProducts/RecentProducts';
 
 
-const recentProductsPromise = fetch("http://localhost:3000/recent-products").then(res => res.json());
+const recentProductsPromise = fetch("https://smart-deals-backend-beige.vercel.app/recent-products").then(res => res.json());
 // console.log(recentProductsPromise);
 
 const Home = () => {

@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 
 
 
-const productsPromise = fetch("http://localhost:3000/products").then(res => res.json());
+const productsPromise = fetch("https://smart-deals-backend-beige.vercel.app/products").then(res => res.json());
 
 
 const AllProducts = () => {
