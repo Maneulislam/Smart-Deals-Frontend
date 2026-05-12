@@ -24,7 +24,7 @@ const Navbar = () => {
 
         <>
             <li><NavLink to="/" className={({ isActive }) => isActive ? "text-[#8B5CF6] font-semibold" : "text-gray-600 hover:text-[#8B5CF6]"}>Home</NavLink></li>
-            <li><NavLink to="/all-products" className={({ isActive }) => isActive ? "text-[#8B5CF6] font-semibold" : "text-gray-600 hover:text-[#8B5CF6]"}>All Products</NavLink></li>
+            <li><NavLink to="/all-products" className={({ isActive }) => isActive ? "text-[#8B5CF6] font-semibold" : "text-gray-600 hover:text-[#8B5CF6]"}>Products</NavLink></li>
 
             {
                 user && <>
