@@ -51,7 +51,7 @@ const AuthProvider = ({ children }) => {
                 const loggedUser = { email: currentUser.email };
 
 
-                fetch('https://smart-deals-backend-beige.vercel.app/get-token', {
+                fetch('https://smart-deals-backend-two.vercel.app/get-token', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

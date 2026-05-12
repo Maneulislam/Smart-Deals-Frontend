@@ -37,7 +37,7 @@ const Register = () => {
                     image: photo
                 };
 
-                fetch("https://smart-deals-backend-beige.vercel.app/users", {
+                fetch("https://smart-deals-backend-two.vercel.app/users", {
                     method: "POST",
                     headers: {
                         'content-type': 'application/json'
@@ -77,7 +77,7 @@ const Register = () => {
                     image: user.photoURL
                 };
 
-                fetch("https://smart-deals-backend-beige.vercel.app/users", {
+                fetch("https://smart-deals-backend-two.vercel.app/users", {
                     method: "POST",
                     headers: {
                         'content-type': 'application/json'

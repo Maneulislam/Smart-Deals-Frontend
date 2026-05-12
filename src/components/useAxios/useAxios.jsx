@@ -4,7 +4,7 @@ import { use } from "react";
 import { AuthContext } from "../../context/AuthContext";
 
 const axiosInstance = axios.create({
-    baseURL: "https://smart-deals-backend-beige.vercel.app",
+    baseURL: "https://smart-deals-backend-two.vercel.app",
 });
 
 const useAxios = () => {

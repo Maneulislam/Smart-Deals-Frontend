@@ -39,7 +39,7 @@ const ProductDetails = () => {
 
 
     useEffect(() => {
-        fetch(`https://smart-deals-backend-beige.vercel.app/products/bids/${_id}`, {
+        fetch(`https://smart-deals-backend-two.vercel.app/products/bids/${_id}`, {
             headers: {
                 authorization: `Bearer ${user.accessToken}`
             }
@@ -86,7 +86,7 @@ const ProductDetails = () => {
 
 
 
-        fetch('https://smart-deals-backend-beige.vercel.app/bids', {
+        fetch('https://smart-deals-backend-two.vercel.app/bids', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

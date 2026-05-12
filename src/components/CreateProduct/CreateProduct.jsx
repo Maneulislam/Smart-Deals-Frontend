@@ -10,6 +10,8 @@ const CreateProduct = () => {
 
     const [condition, setCondition] = useState('Brand New');
 
+    const [category, setCategory] = useState("");
+
     const handleCreateProduct = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -112,10 +114,12 @@ const CreateProduct = () => {
                         </label>
                         <select
                             name="category"
-                            className="select select-bordered w-full bg-white font-normal text-gray-500 focus:outline-none focus:border-[#8b5cf6] focus:ring-1 focus:ring-[#8b5cf6]"
+                            value={category} // Controlled by state
+                            onChange={(e) => setCategory(e.target.value)}
+                            className="select select-bordered w-full ..."
                             required
                         >
-                            <option value="" disabled selected>Select a Category</option>
+                            <option value="" disabled>Select a Category</option>
                             <option value="electronics">Electronics</option>
                             <option value="musical-instruments">Musical Instruments</option>
                             <option value="vehicles">Vehicles</option>
