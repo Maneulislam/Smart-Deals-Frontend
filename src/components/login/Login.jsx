@@ -71,6 +71,7 @@ const Login = () => {
                             name="email"
                             placeholder="Enter Your Email"
                             className="input input-bordered w-full focus:border-purple-500 text-slate-500"
+                            defaultValue="maneulislam512@gmail.com"
                             required
                         />
                     </div>
@@ -85,6 +86,7 @@ const Login = () => {
                             name="password"
                             placeholder="Enter Your Password"
                             className="input input-bordered w-full focus:border-purple-500 text-slate-500"
+                            defaultValue="12345678"
                             required
                         />
                         <label className="label">
