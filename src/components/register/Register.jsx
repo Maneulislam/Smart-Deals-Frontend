@@ -36,6 +36,7 @@ const Register = () => {
                     email: email,
                     image: photo
                 };
+                // console.log(newUser);
 
                 fetch("https://smart-deals-backend-two.vercel.app/users", {
                     method: "POST",
@@ -76,6 +77,7 @@ const Register = () => {
                     email: user.email,
                     image: user.photoURL
                 };
+                // console.log("User", newUser);
 
                 fetch("https://smart-deals-backend-two.vercel.app/users", {
                     method: "POST",
