@@ -73,7 +73,7 @@
 ---
 
 ## Live Link:
-# https://smart-deals-frontend.vercel.app/
+## https://smart-deals-frontend.vercel.app/
 
 ---
 
