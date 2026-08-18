@@ -72,6 +72,11 @@
 
 ---
 
+## Live Link:
+# https://smart-deals-frontend.vercel.app/
+
+---
+
 
 > **Start dealing locally. Post. Bid. Sell.**  
 > _Built for the community, by the community._
